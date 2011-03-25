@@ -55,7 +55,7 @@ gallery at:
 
 The test program whows the positioning of the red square and the view size. I
 also log this to the console. Presuming a rotation to the right on each step,
-here's what the log looks like when entering in portrait mode:
+here's what the log looks like when entering in portrait mode::
 
 	|	Red at 60x125, view size 320x416
 	|	Red at 140x39, view size 480x268
@@ -64,7 +64,7 @@ here's what the log looks like when entering in portrait mode:
 	|	Red at 60x124, view size 320x416
 
 Here's what the log looks like when you enter the custom view in landscape mode
-with your home button to the left:
+with your home button to the left::
 
 	|	Red at 196x34, view size 480x268
 	|	Red at 84x108, view size 320x416
@@ -73,7 +73,7 @@ with your home button to the left:
 	|	Red at 196x34, view size 480x268
 
 And here's how it looks like if you repeat that entering the custom view in
-landscape mode with your home button to the right:
+landscape mode with your home button to the right::
 
 	|	Red at 140x34, view size 480x268
 	|	Red at 60x108, view size 320x416
