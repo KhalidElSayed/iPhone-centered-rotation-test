@@ -42,6 +42,48 @@ haven't found anything similar. Which means I've hit a genuine bug in my brain.
 Please enlighten me!
 
 
+Testing the example
+===================
+
+Open the application and enter the custom view. Rotate it a few times and
+notice it stays centered, everything seems fine. Now repeat entering to the
+view using a landscape orientation, first left, then right. Notice how on each
+orientation the positioning is different. I've put a screenshot walkthrough
+gallery at:
+
+	http://www.dropbox.com/gallery/145894/1/iPhone-centered-rotation-test?h=a30762
+
+The test program whows the positioning of the red square and the view size. I
+also log this to the console. Presuming a rotation to the right on each step,
+here's what the log looks like when entering in portrait mode:
+
+	|	Red at 60x125, view size 320x416
+	|	Red at 140x39, view size 480x268
+	|	Red at 60x124, view size 320x416
+	|	Red at 140x39, view size 480x268
+	|	Red at 60x124, view size 320x416
+
+Here's what the log looks like when you enter the custom view in landscape mode
+with your home button to the left:
+
+	|	Red at 196x34, view size 480x268
+	|	Red at 84x108, view size 320x416
+	|	Red at 196x34, view size 480x268
+	|	Red at 84x108, view size 320x416
+	|	Red at 196x34, view size 480x268
+
+And here's how it looks like if you repeat that entering the custom view in
+landscape mode with your home button to the right:
+
+	|	Red at 140x34, view size 480x268
+	|	Red at 60x108, view size 320x416
+	|	Red at 140x34, view size 480x268
+	|	Red at 60x108, view size 320x416
+	|	Red at 140x34, view size 480x268
+
+Note the different *x* position for the red square.
+
+
 Source code
 ===========
 
@@ -55,7 +97,7 @@ iPads, only on iPhones ranging from 3.1.2 to 4.3 firmware.
 License
 -------
 
-This buggy code is available under the 
+This buggy code is available under the
 BSD license (http://www.opensource.org/licenses/bsd-license.php).
 
 Copyright (c) 2011, Grzegorz Adam Hankiewicz.
