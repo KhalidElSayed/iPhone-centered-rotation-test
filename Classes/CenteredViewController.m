@@ -33,6 +33,7 @@
 	/* Add a printf like label. */
 	label_ = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
 	label_.backgroundColor = [UIColor clearColor];
+	label_.numberOfLines = 0;
 	label_.autoresizingMask = UIViewAutoresizingFlexibleHeight |
 		UIViewAutoresizingFlexibleWidth;
 	[self.view addSubview:label_];
@@ -42,8 +43,8 @@
 - (void)updateLabel {
 	CGRect rect = red_.frame;
 	label_.text = [NSString stringWithFormat:@"Red at %0.0fx%0.0f, "
-		@"size %0.0fx%0.0f", rect.origin.x, rect.origin.y,
-		rect.size.width, rect.size.height];
+		@"view size %0.0fx%0.0f\n", rect.origin.x, rect.origin.y,
+		self.view.frame.size.width, self.view.frame.size.height];
 	NSLog(@"%@", label_.text);
 }
 
