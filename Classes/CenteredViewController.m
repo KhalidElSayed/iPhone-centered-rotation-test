@@ -5,13 +5,13 @@
 
 - (void)loadView {
 	[super loadView];
+	/* The following line is critical, if you remove it, landscape centering
+	 * may not work depending on device orientation!
+	 */
+	self.view.frame = self.view.bounds;
 
 	self.title = @"Centering!";
-	/* Try to force the parent view to be as we want it. */
 	self.view.backgroundColor = [UIColor yellowColor];
-	self.view.autoresizesSubviews = YES;
-	self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight |
-		UIViewAutoresizingFlexibleWidth;
 
 	/* Top left blue square, for reference. */
 	blue_ = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, 130)];
