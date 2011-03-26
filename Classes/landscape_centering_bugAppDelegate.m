@@ -12,10 +12,10 @@
 #pragma mark Application lifecycle
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
-    [self.window addSubview:navigationController.view];
-    [self.window makeKeyAndVisible];
-
-    return YES;
+	[self.window addSubview:navigationController.view];
+	[self.window makeKeyAndVisible];
+	
+	return YES;
 }
 
 - (void)dealloc {
