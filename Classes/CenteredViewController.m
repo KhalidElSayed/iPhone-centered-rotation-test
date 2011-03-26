@@ -3,12 +3,15 @@
 
 @implementation CenteredViewController
 
+@synthesize fix_rotation = fix_rotation_;
+
 - (void)loadView {
 	[super loadView];
-	/* The following line is critical, if you remove it, landscape centering
-	 * may not work depending on device orientation!
+	/* The following assignment is critical, if you remove it, landscape
+	 * centering may not work depending on device orientation!
 	 */
-	self.view.frame = self.view.bounds;
+	if (self.fix_rotation)
+		self.view.frame = self.view.bounds;
 
 	self.title = @"Centering!";
 	self.view.backgroundColor = [UIColor yellowColor];
