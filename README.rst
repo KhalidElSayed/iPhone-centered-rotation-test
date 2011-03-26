@@ -26,7 +26,7 @@ construct the views from code and not using the Interface Builder, and I'm
 tired of *nudging* them to work correctly.
 
 What you have here is a small test case of a navigation based application. The
-application opens with a table and a single cell. Pressing the cell will push a
+application opens with a table and two cells. Pressing the cells will push a
 custom view, created by hand, which contains two rectangles: one aligned on the
 top left corner, one centered on the view. When you enter this custom view, the
 red rectangle is centered, and if you rotate the device, it rotates too,
@@ -37,15 +37,23 @@ the weird thing: it doesn't center any more on the same point. Depending on
 your initial device orientation before pushing the view, the red rectangle will
 center on a different point.
 
-What am I doing wrong? I've browsed through documentation and archives and I
-haven't found anything similar. Which means I've hit a genuine bug in my brain.
-Please enlighten me!
+After asking this question on stackoverflow
+(http://stackoverflow.com/questions/5431045/why-are-my-subviews-not-centering-correctly-depending-on-device-orientation/5431520#5431520)
+Jason found out the answer to this problem: if you push the view while in
+landscape mode (home button to the left), the center of the view's origin is
+set to (0, 20), which is wrong.
+
+You can verify this in the test case. The second option introduces Jason's fix
+and then centering of objects works again as expected. This strange behaviour
+has been tested on devices ranging from 3.1.x to 4.3. Most likely it doesn't
+happen if you use the interface designer to create your views, so it went
+undetected for so long.
 
 
 Testing the example
 ===================
 
-Open the application and enter the custom view. Rotate it a few times and
+Open the application and enter the buggy custom view. Rotate it a few times and
 notice it stays centered, everything seems fine. Now repeat entering to the
 view using a landscape orientation, first left, then right. Notice how on each
 orientation the positioning is different. I've put a screenshot walkthrough
@@ -81,7 +89,8 @@ landscape mode with your home button to the right::
 	Red at 60x108, view size 320x416
 	Red at 140x34, view size 480x268
 
-Note the different *x* position for the red square.
+Note the different *x* position for the red square. If you repeat the tests
+using the second cell everything will work as expected and center properly.
 
 
 Source code
